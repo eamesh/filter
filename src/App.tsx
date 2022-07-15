@@ -6,11 +6,15 @@ export default defineComponent({
 
   setup () {
     const {
+      queues,
+      request,
       increment,
       globalLoading
     } = useHooks();
 
     return {
+      queues,
+      request,
       increment,
       globalLoading
     };
@@ -18,6 +22,8 @@ export default defineComponent({
 
   render () {
     const {
+      queues,
+      request,
       increment,
       globalLoading
     } = this;
@@ -25,16 +31,20 @@ export default defineComponent({
     return (
       <>
         <div>
-          <button onClick={() => increment()}>增加请求</button>
+          <button onClick={() => increment()}>增加动作请求</button>
           <p></p>
-          <button onClick={() => [...Array(10)].map(() => increment(true))}>增加 10 跳随机请求</button>
-          <p>请求数量: { globalLoading.queuesNum }</p>
+          <button onClick={() => [...Array(10)].map(() => increment(true))}>增加 10 条随机动作请求</button>
+          <p></p>
+          <button onClick={() => [...Array(1)].map(() => request())}>增加 1 x 3 条相同模拟请求</button>
+          <p></p>
+          <button onClick={() => [...Array(1000)].map(() => request())}>增加 1000 x 3 条随机相同模拟请求</button>
+          <p>剩余动作数量 {globalLoading.queuesNum}</p>
+          <p>剩余请求数量 {queues.size}</p>
         </div>
         {
-          !!globalLoading.queuesNum && (
+          (!!globalLoading.queuesNum || !!queues.size) && (
             <div class='loading'>
               <span>loading...</span>
-              <span>剩余数量 {globalLoading.queuesNum}</span>
             </div>
           )
         }

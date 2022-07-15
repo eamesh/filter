@@ -19,6 +19,8 @@ module.exports = {
   ],
   rules: {
     semi: ['error', 'always'],
-    quotes: ['error', 'single']
+    quotes: ['error', 'single'],
+    'multiline-ternary': 'off',
+    'no-empty-pattern': 'off'
   }
 };

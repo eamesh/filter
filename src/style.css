@@ -59,7 +59,7 @@ button:focus-visible {
 .card {
   padding: 2em;
 }
-
+/*
 .loading {
   width: 100vw;
   height: 100vh;
@@ -71,7 +71,7 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.87);
-}
+} */
 
 #app {
   max-width: 1280px;
